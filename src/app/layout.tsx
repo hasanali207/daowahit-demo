@@ -15,20 +15,19 @@ const geistMono = Geist_Mono({
   display: "swap",
 });
 
-const SITE_URL = "https://islamia.daowahit.com";
-
-const SITE_NAME = "মা'হাদুদ দাওয়াহ আল ইসলামিয়া";
-const SITE_SHORT_NAME = "ইসলামিয়া বাগানবাড়ী দাওয়াহ মাদ্রাসা";
+const SITE_URL = "https://daowahit.com";
+const SITE_NAME = "Dawah IT";
+const SITE_SHORT_NAME = "দাওয়াহ আইটি";
 
 const SITE_DESCRIPTION =
-  "মা'হাদুদ দাওয়াহ আল ইসলামিয়া (ইসলামিয়া বাগানবাড়ী দাওয়াহ মাদ্রাসা)। ঠিকানা: বড়গাছা ঘোনপাড়া, সোনারায়, ডোমার, নীলফামারী। ২০১৮ ইংরেজিতে প্রতিষ্ঠিত একটি দ্বীনি শিক্ষা প্রতিষ্ঠান।";
+  "Dawah IT (দাওয়াহ আইটি) provides professional web development, software development, custom software solutions, website design, and modern IT services to help businesses grow through technology.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
 
   title: {
-    default: `${SITE_NAME} | ${SITE_SHORT_NAME}`,
-    template: `%s | ${SITE_NAME}`,
+    default: "Dawah IT | Web Development, Software Development & IT Solutions",
+    template: "%s | Dawah IT",
   },
 
   description: SITE_DESCRIPTION,
@@ -46,18 +45,23 @@ export const metadata: Metadata = {
   publisher: SITE_NAME,
 
   keywords: [
-    "মা'হাদুদ দাওয়াহ আল ইসলামিয়া",
-    "ইসলামিয়া বাগানবাড়ী দাওয়াহ মাদ্রাসা",
-    "ইসলামিয়া দাওয়াহ মাদ্রাসা",
-    "বড়গাছা ঘোনপাড়া মাদ্রাসা",
-    "সোনারায় মাদ্রাসা",
-    "ডোমার মাদ্রাসা",
-    "নীলফামারী মাদ্রাসা",
-    "ইসলামিক শিক্ষা",
-    "দ্বীনি শিক্ষা প্রতিষ্ঠান",
-    "Maahadud Dawah Al Islamia",
-    "Islamia Baganbari Dawah Madrasa",
-    "Dawar Madrasa Domar Nilphamari",
+    "Dawah IT",
+    "দাওয়াহ আইটি",
+    "Dawah IT Bangladesh",
+    "Software Development Company",
+    "Web Development Company",
+    "Website Design and Development",
+    "Custom Software Development",
+    "Software Solutions",
+    "IT Solutions Bangladesh",
+    "Web Application Development",
+    "Mobile Application Development",
+    "E-commerce Website Development",
+    "Next.js Development",
+    "React Development",
+    "Laravel Development",
+    "Digital Solutions",
+    "Technology Company Bangladesh",
   ],
 
   alternates: {
@@ -66,25 +70,28 @@ export const metadata: Metadata = {
 
   openGraph: {
     type: "website",
-    locale: "bn_BD",
+    locale: "en_US",
+    alternateLocale: ["bn_BD"],
     url: SITE_URL,
     siteName: SITE_NAME,
-    title: `${SITE_NAME} | ${SITE_SHORT_NAME}`,
-    description: SITE_DESCRIPTION,
+    title: "Dawah IT | Professional Web Development & Software Solutions",
+    description:
+      "Build your digital future with Dawah IT. We provide professional website development, custom software, web applications, and modern IT solutions.",
     images: [
       {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: SITE_NAME,
+        alt: "Dawah IT - Web Development and Software Solutions",
       },
     ],
   },
 
   twitter: {
     card: "summary_large_image",
-    title: SITE_NAME,
-    description: SITE_DESCRIPTION,
+    title: "Dawah IT | Web Development & IT Solutions",
+    description:
+      "Professional web development, software solutions, and modern IT services by Dawah IT.",
     images: ["/og-image.png"],
   },
 
@@ -105,7 +112,7 @@ export const metadata: Metadata = {
     },
   },
 
-  category: "education",
+  category: "technology",
 };
 
 export const viewport: Viewport = {
@@ -120,7 +127,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="bn">
+    <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased transition-colors duration-300`}
       >
