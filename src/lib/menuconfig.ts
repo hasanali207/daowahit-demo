@@ -6,7 +6,6 @@ import {
   BarChart3,
   BookOpen,
   BookText,
-  Brush,
   CalendarCheck,
   CalendarClock,
   CalendarDays,
@@ -43,10 +42,8 @@ import {
   NotebookPenIcon,
   PenLine,
   Power,
-  Presentation,
   Printer,
   Settings,
-  ShoppingCart,
   Stamp,
   User2Icon,
   UserCheck,
@@ -57,11 +54,12 @@ import {
   Users,
   Wallet,
 } from "lucide-react";
+
 interface MenuItem {
   name: string; // Menu item এর নাম
   icon: any; // Icon component
   href?: string; // সাধারণ লিঙ্ক
-  sub?: MenuItem[]; // Dropdown sub items
+  sub?: MenuItem[]; // Dropdown sub items (শুধু এক লেভেল)
   protectedPath?: string; // Protected route এর path
 }
 
@@ -96,7 +94,7 @@ export const menus: Record<string, MenuItem[]> = {
           href: "/admin/student",
         },
         {
-          name: "ক্লাসওয়ারী পেমেন্ট রিপোর্ট",
+          name: "ক্লাসওয়ারী পেমেন্ট রিপোর্ট",
           icon: UserRoundSearch,
           href: "/admin/classledger",
         },
@@ -110,7 +108,7 @@ export const menus: Record<string, MenuItem[]> = {
       sub: [
         { name: "পরীক্ষার নাম", href: "/admin/examname", icon: BookOpen },
         {
-          name: "পরীক্ষার বিষয় সমূহ",
+          name: "পরীক্ষার বিষয় সমূহ",
           href: "/admin/examsubjects",
           icon: BookOpen,
         },
@@ -132,7 +130,7 @@ export const menus: Record<string, MenuItem[]> = {
       icon: BookOpen,
       sub: [
         {
-          name: "গড় ফলাফল এন্ট্রি",
+          name: "গড় ফলাফল এন্ট্রি",
           href: "/admin/entryresult",
           icon: BookOpen,
         },
@@ -159,24 +157,24 @@ export const menus: Record<string, MenuItem[]> = {
           href: "/admin/teacher",
         },
         {
-          name: "দায়িত্ব বন্টন",
+          name: "দায়িত্ব বন্টন",
           icon: UserRoundSearch,
           href: "/admin/teacher/responsibilty",
         },
         {
-          name: "দৈনিক দায়িত্ব এন্ট্রি",
+          name: "দৈনিক দায়িত্ব এন্ট্রি",
           icon: UserRoundSearch,
           href: "/admin/teacher/dailytaskentry",
         },
         {
-          name: "দৈনিক দায়িত্ব রিপোর্ট",
+          name: "দৈনিক দায়িত্ব রিপোর্ট",
           icon: UserRoundSearch,
           href: "/admin/teacher/responsibilitydashboard",
         },
       ],
     },
     {
-      name: "ওয়েবসাইট",
+      name: "ওয়েবসাইট",
       icon: GlobeIcon,
       sub: [
         {
@@ -195,7 +193,7 @@ export const menus: Record<string, MenuItem[]> = {
           icon: Megaphone,
         },
         {
-          name: "পড়ালেখার শিট ",
+          name: "পড়ালেখার শিট ",
           href: "/admin/website/shits",
           icon: NotebookPenIcon,
         },
@@ -219,7 +217,7 @@ export const menus: Record<string, MenuItem[]> = {
       icon: Settings,
       sub: [
         {
-          name: "পাসওয়ার্ড পরিবর্তন",
+          name: "পাসওয়ার্ড পরিবর্তন",
           icon: KeySquareIcon,
           href: "/password",
         },
@@ -291,7 +289,7 @@ export const menus: Record<string, MenuItem[]> = {
           href: "/accountant/accounts/payments/mutiplemonthcash",
         },
         {
-          name: "ইনভয়েস প্রিন্ট",
+          name: "ইনভয়েস প্রিন্ট",
           icon: KeySquareIcon,
           href: "/accountant/accounts/transactioninvoice",
         },
@@ -301,7 +299,7 @@ export const menus: Record<string, MenuItem[]> = {
           href: "/accountant/payments/paidpayments",
         },
         {
-          name: "ক্লাসওয়ারী রিপোর্ট",
+          name: "ক্লাসওয়ারী রিপোর্ট",
           icon: KeySquareIcon,
           href: "/accountant/classledger",
         },
@@ -312,37 +310,37 @@ export const menus: Record<string, MenuItem[]> = {
       icon: Wallet,
       sub: [
         {
-          name: "আয়ের খাতসমূহ",
+          name: "আয়ের খাতসমূহ",
           href: "/accountant/accounts/income/accountcategory",
           icon: ListPlus,
         },
         {
-          name: "আয়ের হিসাব",
+          name: "আয়ের হিসাব",
           href: "/accountant/accounts/income/accountentries",
           icon: BanknoteArrowUp,
         },
         {
-          name: "আয় ব্যয় ম্যাপিং",
+          name: "আয় ব্যয় ম্যাপিং",
           href: "/accountant/accounts/mapping",
           icon: BanknoteArrowUp,
         },
         {
-          name: "ব্যয়ের খাতসমূহ",
+          name: "ব্যয়ের খাতসমূহ",
           href: "/accountant/accounts/expense/accountcategory",
           icon: ListMinus,
         },
         {
-          name: "ব্যয়ের হিসাব",
+          name: "ব্যয়ের হিসাব",
           href: "/accountant/accounts/expense/accountentries",
           icon: BanknoteArrowDown,
         },
         {
-          name: "আয় ব্যয় খাত রিপোর্ট",
+          name: "আয় ব্যয় খাত রিপোর্ট",
           href: "/accountant/accounts/allocationreport",
           icon: Banknote,
         },
         {
-          name: "আয় ব্যয় রিপোর্ট",
+          name: "আয় ব্যয় রিপোর্ট",
           href: "/accountant/accounts/report",
           icon: Banknote,
         },
@@ -442,7 +440,7 @@ export const menus: Record<string, MenuItem[]> = {
       icon: Settings,
       sub: [
         {
-          name: "পাসওয়ার্ড পরিবর্তন",
+          name: "পাসওয়ার্ড পরিবর্তন",
           icon: KeySquareIcon,
           href: "/password",
         },
@@ -460,7 +458,7 @@ export const menus: Record<string, MenuItem[]> = {
       href: "/teacher/download",
     },
     {
-      name: "ক্লাস ওয়ারী পেমেন্ট",
+      name: "ক্লাস ওয়ারী পেমেন্ট",
       icon: KeySquareIcon,
       href: "/teacher/classledger",
     },
@@ -485,7 +483,7 @@ export const menus: Record<string, MenuItem[]> = {
       icon: Settings,
       sub: [
         {
-          name: "পাসওয়ার্ড পরিবর্তন",
+          name: "পাসওয়ার্ড পরিবর্তন",
           icon: KeySquareIcon,
           href: "/password",
         },
@@ -510,7 +508,7 @@ export const menus: Record<string, MenuItem[]> = {
       icon: Settings,
       sub: [
         {
-          name: "পাসওয়ার্ড পরিবর্তন",
+          name: "পাসওয়ার্ড পরিবর্তন",
           icon: KeySquareIcon,
           href: "/password",
         },
@@ -533,7 +531,7 @@ export const menus: Record<string, MenuItem[]> = {
       icon: Settings,
       sub: [
         {
-          name: "পাসওয়ার্ড পরিবর্তন",
+          name: "পাসওয়ার্ড পরিবর্তন",
           icon: KeySquareIcon,
           href: "/password",
         },
@@ -545,92 +543,7 @@ export const menus: Record<string, MenuItem[]> = {
 
   super_admin: [
     { name: "ড্যাশবোর্ড", icon: Home, href: "/superadmin" },
-    {
-      name: "মোহতামীম প্রোফাইল",
-      icon: Home,
-      sub: [
-        {
-          name: "প্রাতিষ্ঠানিক গঠনতন্ত্র",
-          icon: Home,
-          href: "/superadmin",
-        },
-        {
-          name: "মজলিসে শুরা",
-          icon: Home,
-          href: "/superadmin",
-        },
-        {
-          name: "মজলিসে আমেলা",
-          icon: Home,
-          href: "/superadmin",
-        },
-        {
-          name: " উপজেলা নির্বাহী পরিচিতি",
-          icon: Home,
-          href: "/superadmin",
-        },
-        {
-          name: "প্রশাসন থানা পরিচিতি",
-          icon: Home,
-          href: "/superadmin",
-        },
-        {
-          name: "সহযোগী দ্বায়ী ডাটা",
-          icon: Home,
-          href: "/superadmin",
-        },
-        {
-          name: "নওমুসলিম ডাটা",
-          icon: Home,
-          href: "/superadmin",
-        },
-        {
-          name: "চাকুরীজীবী অভিভাবক",
-          icon: Home,
-          href: "/superadmin",
-        },
-        {
-          name: "রাজনৈতিক অভিভাবক",
-          icon: Home,
-          href: "/superadmin",
-        },
-        {
-          name: "ব্যবসায়িক অভিভাবক",
-          icon: Home,
-          href: "/superadmin",
-        },
-        {
-          name: "নোয়াফিক এলাকাবাসী",
-          icon: Home,
-          href: "/superadmin",
-        },
-        {
-          name: "ফায়ার সার্ভিস",
-          icon: Home,
-          href: "/superadmin",
-        },
-        {
-          name: "ইলেকট্রিক মিস্ত্রী",
-          icon: Home,
-          href: "/superadmin",
-        },
-        {
-          name: "নির্মাণ মিস্ত্রি",
-          icon: Home,
-          href: "/superadmin",
-        },
-        {
-          name: "ফিটিং ও প্লামবার",
-          icon: Home,
-          href: "/superadmin",
-        },
-        {
-          name: "শিক্ষক কোয়াটার নিতীমালা",
-          icon: Home,
-          href: "/superadmin",
-        },
-      ],
-    },
+
     {
       name: "শিক্ষক প্রোফাইল",
       icon: Users,
@@ -641,7 +554,7 @@ export const menus: Record<string, MenuItem[]> = {
           href: "/superadmin/admin/addteacher",
         },
         {
-          name: "শিক্ষক বায়োডাটা",
+          name: "শিক্ষক বায়োডাটা",
           icon: UserRoundSearch,
           href: "/superadmin/teacher/allteacher",
         },
@@ -661,7 +574,7 @@ export const menus: Record<string, MenuItem[]> = {
           href: "/superadmin/teacher/responsibilitydashboard",
         },
         {
-          name: "দৈনিক দায়িত্ব রিপোর্ট",
+          name: "দৈনিক দায়িত্ব রিপোর্ট",
           icon: UserRoundSearch,
           href: "/superadmin/teacher/responsibilitydashboard",
         },
@@ -724,7 +637,7 @@ export const menus: Record<string, MenuItem[]> = {
           icon: BookText,
         },
         {
-          name: "পরীক্ষার বিষয় সমূহ",
+          name: "পরীক্ষার বিষয় সমূহ",
           href: "/superadmin/admin/examsubjects",
           icon: Library,
         },
@@ -740,7 +653,7 @@ export const menus: Record<string, MenuItem[]> = {
         },
 
         {
-          name: "গড় ফলাফল এন্ট্রি",
+          name: "গড় ফলাফল এন্ট্রি",
           href: "/superadmin/admin/entryresult",
           icon: PenLine,
         },
@@ -757,103 +670,96 @@ export const menus: Record<string, MenuItem[]> = {
       ],
     },
 
+    // =====================================================
+    // অফিস একাউন্টিং (আগে nested ছিল, এখন আলাদা parent menu)
+    // =====================================================
+    {
+      name: "শিক্ষার্থী ফি ব্যবস্থাপনা",
+      icon: CreditCard,
+      sub: [
+        {
+          name: "ফি এর ধরন",
+          href: "/superadmin/accountant/payments/feecategory",
+          icon: List,
+        },
+        {
+          name: "শ্রেণী ভিত্তিক ফি",
+          href: "/superadmin/accountant/payments/classfees",
+          icon: GraduationCap,
+        },
+        {
+          name: "ছাত্র আলাদা ফি",
+          href: "/superadmin/accountant/payments/studentfees",
+          icon: UserCog,
+        },
+        {
+          name: "বেতন তৈরী",
+          href: "/superadmin/accountant/payments/payment",
+          icon: FilePlus,
+        },
+        {
+          name: "এক্সট্রা ফি যুক্ত",
+          href: "/superadmin/accountant/addextrafee",
+          icon: FilePlus,
+        },
+        {
+          name: "শিক্ষার্থী ফি গ্রহণ",
+          href: "/superadmin/accountant/accounts/payments/mutiplemonthcash",
+          icon: CalendarRange,
+        },
+
+        {
+          name: "ক্লাসভিত্তিক রিপোর্ট",
+          href: "/superadmin/admin/classledger",
+          icon: GraduationCap,
+        },
+      ],
+    },
+    {
+      name: "আয়-ব্যয় ব্যবস্থাপনা",
+      icon: Wallet,
+      sub: [
+        {
+          name: "আয়ের খাতসমূহ",
+          href: "/superadmin/accountant/accounts/income/accountcategory",
+          icon: ListPlus,
+        },
+        {
+          name: "হ্যান্ড রশিদ এন্ট্রি",
+          href: "/superadmin/accountant/accounts/income/accountentries",
+          icon: BanknoteArrowUp,
+        },
+        {
+          name: "আয় ব্যয় ম্যাপিং",
+          href: "/superadmin/accountant/accounts/mapping",
+          icon: ArrowLeftRight,
+        },
+        {
+          name: "ব্যয়ের খাতসমূহ",
+          href: "/superadmin/accountant/accounts/expense/accountcategory",
+          icon: ListMinus,
+        },
+        {
+          name: "হ্যান্ড ভাউচার এন্ট্রি",
+          href: "/superadmin/accountant/accounts/expense/accountentries",
+          icon: BanknoteArrowDown,
+        },
+        {
+          name: "আয় ব্যয় খাত রিপোর্ট",
+          href: "/superadmin/accountant/accounts/allocationreport",
+          icon: Banknote,
+        },
+        {
+          name: "আয়-ব্যয় রিপোর্ট",
+          href: "/superadmin/accountant/accounts/report",
+          icon: FileBarChart,
+        },
+      ],
+    },
     {
       name: "অফিস একাউন্টিং",
       icon: Wallet,
       sub: [
-        {
-          name: "শিক্ষার্থী ফি ব্যবস্থাপনা",
-          icon: CreditCard,
-          sub: [
-            {
-              name: "ফি এর ধরন",
-              href: "/superadmin/accountant/payments/feecategory",
-              icon: List,
-            },
-            {
-              name: "শ্রেণী ভিত্তিক ফি",
-              href: "/superadmin/accountant/payments/classfees",
-              icon: GraduationCap,
-            },
-            {
-              name: "ছাত্র আলাদা ফি",
-              href: "/superadmin/accountant/payments/studentfees",
-              icon: UserCog,
-            },
-            {
-              name: "বেতন তৈরী",
-              href: "/superadmin/accountant/payments/payment",
-              icon: FilePlus,
-            },
-            {
-              name: "এক্সট্রা ফি যুক্ত",
-              href: "/superadmin/accountant/addextrafee",
-              icon: FilePlus,
-            },
-            {
-              name: "শিক্ষার্থী ফি গ্রহণ",
-              href: "/superadmin/accountant/accounts/payments/mutiplemonthcash",
-              icon: CalendarRange,
-            },
-
-            {
-              name: "লেনদেন রিপোর্ট",
-              href: "/superadmin/accountant/payments/paidpayments",
-              icon: BarChart3,
-            },
-            {
-              name: "ক্লাসভিত্তিক রিপোর্ট",
-              href: "/superadmin/admin/classledger",
-              icon: GraduationCap,
-            },
-          ],
-        },
-
-        // =====================================================
-        // আয়-ব্যয় ব্যবস্থাপনা
-        // =====================================================
-        {
-          name: "আয়-ব্যয় ব্যবস্থাপনা",
-          icon: Wallet,
-          sub: [
-            {
-              name: "আয়ের খাতসমূহ",
-              href: "/superadmin/accountant/accounts/income/accountcategory",
-              icon: ListPlus,
-            },
-            {
-              name: "হ্যান্ড রশিদ এন্ট্রি",
-              href: "/superadmin/accountant/accounts/income/accountentries",
-              icon: BanknoteArrowUp,
-            },
-            {
-              name: "আয় ব্যয় ম্যাপিং",
-              href: "/superadmin/accountant/accounts/mapping",
-              icon: ArrowLeftRight,
-            },
-            {
-              name: "ব্যয়ের খাতসমূহ",
-              href: "/superadmin/accountant/accounts/expense/accountcategory",
-              icon: ListMinus,
-            },
-            {
-              name: "হ্যান্ড ভাউচার এন্ট্রি",
-              href: "/superadmin/accountant/accounts/expense/accountentries",
-              icon: BanknoteArrowDown,
-            },
-            {
-              name: "আয় ব্যয় খাত রিপোর্ট",
-              href: "/superadmin/accountant/accounts/allocationreport",
-              icon: Banknote,
-            },
-            {
-              name: "আয়-ব্যয় রিপোর্ট",
-              href: "/superadmin/accountant/accounts/report",
-              icon: FileBarChart,
-            },
-          ],
-        },
-
         {
           name: "কলামনার ক্যাশবুক",
           href: "/superadmin/accountant/monthreport",
@@ -864,120 +770,75 @@ export const menus: Record<string, MenuItem[]> = {
           href: "/superadmin/accountant/accounts/yearly",
           icon: CalendarDays,
         },
-
         {
-          name: "সাধারণ অনুদান",
-          icon: HandHelping,
-          sub: [
-            {
-              name: "জমা করুন",
-              icon: KeySquareIcon,
-              href: "/superadmin/accountant/donation",
-            },
-            {
-              name: "রিপোর্ট দেখুন",
-              icon: KeySquareIcon,
-              href: "/superadmin/accountant/donations/report",
-            },
-          ],
-        },
-        {
-          name: "মাসিক সদস্য অনুদান",
-          icon: HeartHandshake,
-          sub: [
-            {
-              name: "দাতা সদস্য তৈরি",
-              icon: KeySquareIcon,
-              href: "/superadmin/accountant/donor/adddonor",
-            },
-            {
-              name: "দাতা সদস্যগণ",
-              icon: KeySquareIcon,
-              href: "/superadmin/donor/donor_list",
-            },
-            {
-              name: "ডাটা ডাউনলোড",
-              icon: Download,
-              href: "/superadmin/donor/download",
-            },
-            {
-              name: "দানের পরিমাণ",
-              icon: KeySquareIcon,
-              href: "/superadmin/accountant/donor/donoramount",
-            },
-            {
-              name: "অনুদান পেমেন্ট তৈরি",
-              icon: KeySquareIcon,
-              href: "/superadmin/accountant/monthlydonation/generateinvoice",
-            },
-            {
-              name: "জমা করুন",
-              icon: KeySquareIcon,
-              href: "/superadmin/accountant/monthlydonation",
-            },
-            {
-              name: "অনুদান রিপোর্ট",
-              icon: KeySquareIcon,
-              href: "/superadmin/accountant/monthlydonation/report",
-            },
-          ],
-        },
-        {
-          name: "ইনভয়েস প্রিন্ট",
+          name: "ইনভয়েস প্রিন্ট",
           href: "/superadmin/accountant/transactioninvoice",
           icon: Printer,
         },
-      ],
-    },
-    {
-      name: "নাযেমে দারুল ইকামাহ",
-      icon: Stamp,
-      sub: [
         {
-          name: "নাযেমে দারুল ইকামাহ",
-          icon: Stamp,
+          name: "লেনদেন রিপোর্ট",
+          href: "/superadmin/accountant/payments/paidpayments",
+          icon: BarChart3,
         },
       ],
     },
     {
-      name: "বোডিং ডিপার্টমেন্ট",
-      icon: Presentation,
+      name: "সাধারণ অনুদান",
+      icon: HandHelping,
       sub: [
         {
-          name: "সকল বোডিং সদস্য",
-          icon: Presentation,
+          name: "জমা করুন",
+          icon: KeySquareIcon,
+          href: "/superadmin/accountant/donation",
         },
         {
-          name: "বোডিং খানার হিসাব",
-          icon: Presentation,
-        },
-        {
-          name: "বোডিং খানার হাজিরা",
-          icon: Presentation,
+          name: "রিপোর্ট দেখুন",
+          icon: KeySquareIcon,
+          href: "/superadmin/accountant/donations/report",
         },
       ],
     },
     {
-      name: "কেয়ার টেকার",
-      icon: Brush,
+      name: "মাসিক সদস্য অনুদান",
+      icon: HeartHandshake,
       sub: [
         {
-          name: "কেয়ার টেকার",
-          icon: Brush,
+          name: "দাতা সদস্য তৈরি",
+          icon: KeySquareIcon,
+          href: "/superadmin/accountant/donor/adddonor",
+        },
+        {
+          name: "দাতা সদস্যগণ",
+          icon: KeySquareIcon,
+          href: "/superadmin/donor/donor_list",
+        },
+        {
+          name: "ডাটা ডাউনলোড",
+          icon: Download,
+          href: "/superadmin/donor/download",
+        },
+        {
+          name: "দানের পরিমাণ",
+          icon: KeySquareIcon,
+          href: "/superadmin/accountant/donor/donoramount",
+        },
+        {
+          name: "অনুদান পেমেন্ট তৈরি",
+          icon: KeySquareIcon,
+          href: "/superadmin/accountant/monthlydonation/generateinvoice",
+        },
+        {
+          name: "জমা করুন",
+          icon: KeySquareIcon,
+          href: "/superadmin/accountant/monthlydonation",
+        },
+        {
+          name: "অনুদান রিপোর্ট",
+          icon: KeySquareIcon,
+          href: "/superadmin/accountant/monthlydonation/report",
         },
       ],
     },
-    {
-      name: "ক্যান্টিন ব্যবস্থাপনা",
-      icon: ShoppingCart,
-      sub: [
-        {
-          name: "ক্যান্টিন ব্যবস্থাপনা",
-          icon: ShoppingCart,
-        },
-      ],
-    },
-
     {
       name: "ডিজিটাল হাজিরা",
       icon: Fingerprint,
@@ -1020,7 +881,7 @@ export const menus: Record<string, MenuItem[]> = {
       ],
     },
     {
-      name: "ওয়েবসাইট",
+      name: "ওয়েবসাইট",
       icon: GlobeIcon,
       sub: [
         {
@@ -1044,7 +905,7 @@ export const menus: Record<string, MenuItem[]> = {
           icon: Megaphone,
         },
         {
-          name: "পড়ালেখার শিট ",
+          name: "পড়ালেখার শিট ",
           href: "/superadmin/admin/website/shits",
           icon: NotebookPenIcon,
         },
@@ -1108,7 +969,7 @@ export const menus: Record<string, MenuItem[]> = {
             "/superadmin/accountant/accounts/payments/allstudentpayments",
         },
         {
-          name: "পাসওয়ার্ড পরিবর্তন",
+          name: "পাসওয়ার্ড পরিবর্তন",
           icon: KeySquareIcon,
           href: "/password",
         },
